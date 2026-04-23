@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+
+title Sequence Diagram Template
+
+participant "node" as N
+participant "searcher" as S
+
+== Initialization ==
+N -> S: initialize()
+activate S
+S --> N: ready()
+deactivate S
+
+== Main Process ==
+N -> S: search(query)
+activate S
+S -> S: processQuery()
+S --> N: result
+deactivate S
+
+== Cleanup ==
+N -> S: cleanup()
+activate S
+S --> N: done()
+deactivate S
+
+@enduml 
